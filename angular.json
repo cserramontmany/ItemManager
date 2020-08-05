@@ -123,6 +123,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "item-manager-app"
+    }
+  },
+  "defaultProject": "item-manager-app",
+  "cli": {
+    "analytics": "5c655925-2c74-4891-8b3a-b0c8909a00df"
+  }
 }

@@ -1,0 +1,10 @@
+{"devServer": {
+    "historyApiFallback": true,
+    "proxy": {
+        "/api": {
+            "target": "https://frontend-tech-test-data.s3.eu-west-1.amazonaws.com/items.json",
+        "secure": false
+      }
+    }
+  }
+}
