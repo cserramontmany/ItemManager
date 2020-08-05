@@ -1,1 +1,5 @@
-<p>item-manager works!</p>
+<div *ngIf="items">
+    <div *ngFor="let itm of items" >
+        <app-item [item]="itm"></app-item>
+    </div>
+</div>

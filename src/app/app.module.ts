@@ -5,11 +5,13 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ItemManagerComponent } from './item-manager/item-manager.component';
+import { ItemComponent } from './item/item.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ItemManagerComponent
+    ItemManagerComponent,
+    ItemComponent
   ],
   imports: [
     BrowserModule,

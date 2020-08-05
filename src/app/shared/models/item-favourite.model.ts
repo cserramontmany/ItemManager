@@ -1,4 +1,4 @@
-export class Item{
+export class ItemFavourite {
         title: string;
         description: string;
         price: string;
