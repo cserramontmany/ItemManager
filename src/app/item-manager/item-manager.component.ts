@@ -1,5 +1,5 @@
 import { Component, OnInit, AfterViewInit } from '@angular/core';
-import { ItemServiceService } from './../shared/services/item-service.service';
+import { ItemService } from './../shared/services/item-service.service';
 import { Item } from '../shared/models/item.model';
 import { finalize, concatAll } from 'rxjs/operators';
 @Component({
@@ -9,7 +9,7 @@ import { finalize, concatAll } from 'rxjs/operators';
 })
 export class ItemManagerComponent implements OnInit {
   items: Item[] = [];
-  constructor(private itemService: ItemServiceService) {}
+  constructor(private itemService: ItemService) {}
   
   ngOnInit(): void {
     this.getItems();
