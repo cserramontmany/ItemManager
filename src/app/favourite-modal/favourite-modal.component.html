@@ -1,0 +1,15 @@
+<div class="modal" [ngClass]="{ show: showModal }">
+  <!-- Modal content -->
+  <div class="modal-content">
+    <div class="close" (click)="close()">&times;</div>
+    <div *ngIf="items" class="flex">
+      <div *ngFor="let itm of items">
+        <app-item-small [item]="itm"></app-item-small>
+      </div>
+    </div>
+    <div class="centered-box" *ngIf="items.length <= 0">
+      <p class="oops-text">Oops,it looks favourite items list is empty. Please close this window and like our items again.</p>
+      <button class="btn" (click)="close()">Close window</button>
+    </div>
+  </div>
+</div>

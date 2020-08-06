@@ -1,0 +1,15 @@
+<div class="item">
+
+  <div class="img" style="background-image:url('{{ item.image }}');"></div>
+
+  <div class="title">
+    <h3>{{ item.title }}</h3>
+  </div>
+
+  <div (click)="toggleFav()" class="pointer heart">
+    <i class="material-icons favourite-pink" *ngIf="item.favourite">favorite</i>
+    <i class="material-icons" *ngIf="!item.favourite">favorite_border</i>
+  </div>
+
+</div>
+

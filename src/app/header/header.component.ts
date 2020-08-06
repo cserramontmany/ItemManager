@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
 import { FavouritesService } from '../shared/services/favourites.service';
 import { Item } from '../shared/models/item.model';
+import { FavouriteModalComponent } from '../favourite-modal/favourite-modal.component';
+import { ItemFavourite } from '../shared/models/item-favourite.model';
 
 @Component({
   selector: 'app-header',
@@ -8,8 +10,9 @@ import { Item } from '../shared/models/item.model';
   styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent implements OnInit {
-  items: Item[] = [];
-
+  items: ItemFavourite[] = [];
+  @ViewChild('fav') modal: FavouriteModalComponent;
+  
   constructor(private favService: FavouritesService) {}
 
   ngOnInit(): void {
@@ -20,7 +23,10 @@ export class HeaderComponent implements OnInit {
     this.items = this.favService.getFavouriteList();
   }
 
-  showFavs(){
+  showFavs():void{
     //show modal: 
+    if (this.items.length > 0 ) {
+      this.modal.show();
+    }
   }
 }

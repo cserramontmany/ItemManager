@@ -25,61 +25,42 @@ export class ItemService {
     return throwError(error);
   }
 
-  public getItems(): Observable<Item[]> {
+  // public getItems(): Observable<Item[]> {
+  //   // Call the http GET
+  //   return this.http.get<any>(environment.remoteServiceUrl).pipe(
+  //     map((res) => {
+  //       const items: Item[] = [];
+  //       // Array.from(res).forEach(elem => {
+  //       //   items.push(<Item>elem)
+  //       //   //console.log(JSON.stringify(<Item>elem.title))
+  //       // });
+  //       for (let itm = 0; itm < res.items.length; itm++) {
+  //         const elem = res.items[itm];
+  //         items.push(elem);
+  //       }
+  //       return items;
+  //     }),
+  //     catchError(this.handleError)
+  //   );
+  // }
+
+  public getFavItems(): Observable<ItemFavourite[]> {
     // Call the http GET
-    return this.http.get<any>(environment.remoteServiceUrl).pipe(
-      map((res) => {
-        const items: Item[] = [];
-        Array.from(res).forEach(elem => {
-          items.push(<Item>elem)
-          //console.log(JSON.stringify(<Item>elem.title))
-        });
+    return this.http.get<any>(environment.remoteServiceUrl)
+    .pipe(map((res) => {
+        const items: ItemFavourite[] = [];
         for (let itm = 0; itm < res.items.length; itm++) {
-          const elem = res.items[itm];
+          const elem = this.mapItemToFavouriteItem(res.items[itm]);
           items.push(elem);
         }
-        // for (const itm in res) {
-        //   if (Object.prototype.hasOwnProperty.call(res, itm)) {
-        //     const elem = res.items[itm];
-        //     items.push(elem);
-        //   }
-        // }
-        //console.log(JSON.stringify(items));
         return items;
       }),
       catchError(this.handleError)
     );
   }
 
-  // public getItemWithFavouriteOLD(): ItemFavourite[] {
-  //   const favs: ItemFavourite[] = [];
-  //   this.getItems().subscribe((res) => {
-  //     Array.from(res).forEach((elem) => {
-  //       let fav = new ItemFavourite();
-  //       fav.title = elem.title;
-  //       fav.description = elem.description;
-  //       fav.price = elem.price;
-  //       fav.image = elem.image;
-  //       favs.push(fav);
-  //     });
-  //   });
-  //   console.log(JSON.stringify(favs));
-  //   return favs;
-  // }
-
-  // public getItemWithFavourite(): ItemFavourite[] {
-  //   const favs: ItemFavourite[] = [];
-  //   this.getItems()
-  //     .pipe(map((val) => {
-  //       for (const itm in val) {
-  //         if (Object.prototype.hasOwnProperty.call(val, itm)) {
-  //           const elem:ItemFavourite = <ItemFavourite>val[itm];
-  //           favs.push(elem);
-  //         }
-  //       }
-  //     }))
-  //     .subscribe();
-  //     console.log(JSON.stringify(favs));
-  //   return favs;
-  // }
+  mapItemToFavouriteItem(item:Item):ItemFavourite{
+    let favItem = new ItemFavourite(item)
+    return favItem;
+  }
 }

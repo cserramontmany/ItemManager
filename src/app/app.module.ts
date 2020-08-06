@@ -8,13 +8,17 @@ import { AppComponent } from './app.component';
 import { ItemManagerComponent } from './item-manager/item-manager.component';
 import { ItemComponent } from './item/item.component';
 import { HeaderComponent } from './header/header.component';
+import { FavouriteModalComponent } from './favourite-modal/favourite-modal.component';
+import { ItemSmallComponent } from './favourite-modal/item-small/item-small.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ItemManagerComponent,
     ItemComponent,
-    HeaderComponent
+    HeaderComponent,
+    FavouriteModalComponent,
+    ItemSmallComponent
   ],
   imports: [
     BrowserModule,

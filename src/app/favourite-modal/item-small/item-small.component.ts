@@ -1,17 +1,18 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Item } from '../shared/models/item.model';
-import { FavouritesService } from '../shared/services/favourites.service';
-import { ItemFavourite } from '../shared/models/item-favourite.model';
+import { ItemFavourite } from 'src/app/shared/models/item-favourite.model';
+import { FavouritesService } from 'src/app/shared/services/favourites.service';
 
 @Component({
-  selector: 'app-item',
-  templateUrl: './item.component.html',
-  styleUrls: ['./item.component.scss']
+  selector: 'app-item-small',
+  templateUrl: './item-small.component.html',
+  styleUrls: ['./item-small.component.scss']
 })
-export class ItemComponent {
+export class ItemSmallComponent implements OnInit {
   @Input() item: ItemFavourite;
-
   constructor(private favService: FavouritesService) {}
+
+  ngOnInit(): void {
+  }
 
   toggleFav(){
     this.item.favourite = !this.item.favourite;
