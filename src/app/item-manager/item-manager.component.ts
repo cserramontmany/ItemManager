@@ -15,7 +15,6 @@ export class ItemManagerComponent implements OnInit {
     this.getItems();
   }
 
-  
   public getItems():void{
     this.itemService
       .getItems()

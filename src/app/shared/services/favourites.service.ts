@@ -1,11 +1,12 @@
 import { Injectable } from '@angular/core';
 import { Item } from '../models/item.model';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class FavouritesService {
-  favItems: Item[] = [];
+  private favItems: Item[] = [];
   constructor() { }
 
   getFavouriteList(): Item[]{

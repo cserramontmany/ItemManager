@@ -5,7 +5,7 @@
         <div class="flex-container">
             <div><h3 class="price">{{item.price}}€</h3></div>
             <div (click)="toggleFav()" class="pointer">
-                <i class="material-icons pink" *ngIf="item.favourite">favorite</i>
+                <i class="material-icons favourite-pink" *ngIf="item.favourite">favorite</i>
                 <i class="material-icons" *ngIf="!item.favourite">favorite_border</i>
             </div>
         </div>

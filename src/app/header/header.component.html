@@ -1,0 +1,12 @@
+<div class="flex-container-header">
+    <div (click)="showFavs()" class="favourites-container pointer" [ngClass]="items.length > 0 ?'pointer' :'not-allowed'">
+      <p class="fav-counter">{{ items.length }}</p>
+      <i class="material-icons favourite-pink" *ngIf="items.length > 0">favorite</i>
+      <i class="material-icons" *ngIf="items.length <= 0">favorite_border</i>
+    </div>
+  <div class="title-container">
+    <p class="title">Item App</p>
+    <p class="from">from</p>
+    <p class="email">carles.idea@gmail.com</p>
+  </div>
+</div>
