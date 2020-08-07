@@ -1,5 +1,5 @@
 import { Component, OnInit, AfterViewInit } from '@angular/core';
-import { ItemService } from './../shared/services/item-service.service';
+import { ItemService } from '../shared/services/item.service';
 import { Item } from '../shared/models/item.model';
 import { finalize, concatAll } from 'rxjs/operators';
 import { ItemFavourite } from '../shared/models/item-favourite.model';
