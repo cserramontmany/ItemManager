@@ -1,5 +1,8 @@
 <div *ngIf="items" class="flex">
-    <div *ngFor="let itm of items">
+    <div *ngFor="let itm of templateItems">
         <app-item [item]="itm"></app-item>
     </div>
 </div>
+        <div class="btn-container">
+            <button class="btn" (click)="getSomeItems()">More items</button>
+        </div>

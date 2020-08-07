@@ -38,21 +38,15 @@ export class ItemService {
     return this.http.get<any>(environment.remoteServiceUrl)
     .pipe(
       map(res=>{
-        return <ItemFavourite[]>res.items;
+        let items: Item[]= <Item[]>res.items;
+        let favitems:ItemFavourite[] = [];
+        items.forEach(elem => {
+          favitems.push(this.mapItemToFavouriteItem(elem));
+        });
+        return favitems;
       }),
       catchError(this.handleError)
     );
-    // .pipe(
-    //   map((res) => {
-    //     const items: ItemFavourite[] = [];
-    //     for (let itm = 0; itm < res.items.length; itm++) {
-    //       const elem = this.mapItemToFavouriteItem(res.items[itm]);
-    //       items.push(elem);
-    //     }
-    //     return items;
-    //   }),
-    //   catchError(this.handleError)
-    // );
   }
 
   mapItemToFavouriteItem(item: Item): ItemFavourite {

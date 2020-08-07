@@ -3,3 +3,11 @@
     flex-direction: row;
     flex-wrap: wrap;
 }
+.btn-container{
+    display: flex;
+    justify-content: flex-end;
+    width: 80%;
+}
+.btn{
+    margin-right: 20;
+}
