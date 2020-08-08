@@ -5,17 +5,17 @@
   margin-bottom: 20px;
   margin-right: 20px;
   width: 300px;
-  height: 450px;
+  //height: 450px;
   box-shadow: 1px 1px 5px #999999;
 }
-.img {
-  width: 300px;
-  height: 300px;
-  //carles fix image display on canvas.
-  background-size: cover;
+
+
+.img-item{
   border-radius: 4px 4px 0 0;
   margin-bottom: 10px;
+  width:100%
 }
+
 .flex-container{
     display: flex;
     flex-wrap: nowrap;
@@ -42,12 +42,12 @@ div .price {
 }
 
 .description {
-  overflow: hidden;
-  text-overflow: ellipsis;
-  display: -webkit-box;
-  -webkit-line-clamp: 2; /* number of lines to show */
-  -webkit-box-orient: vertical;
-  margin-bottom: 10px;
+  // overflow: hidden;
+  // text-overflow: ellipsis;
+  // display: -webkit-box;
+  // -webkit-line-clamp: 2; /* number of lines to show */
+  // -webkit-box-orient: vertical;
+  margin-bottom: 30px;
 }
 .email {
   position: absolute;

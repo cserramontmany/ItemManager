@@ -44,9 +44,9 @@ export class ItemManagerComponent implements OnInit {
   }
 
   // @HostListener('scroll', ['$event']) // for scroll events of the current element
-@HostListener('window:scroll', ['$event']) // for window scroll events
-onScroll(event) {
-  this.getSomeItems()
-  console.log("tachan", event)
-}
+// @HostListener('window:scroll', ['$event']) // for window scroll events
+// onScroll(event) {
+//   this.getSomeItems()
+//   console.log("tachan", event)
+// }
 }

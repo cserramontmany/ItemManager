@@ -35,11 +35,10 @@ export class ItemService {
 
   public getFavItems(): Observable<ItemFavourite[]> {
     // Call the http GET
-    return this.http.get<any>(environment.remoteServiceUrl)
-    .pipe(
-      map(res=>{
-        let items: Item[]= <Item[]>res.items;
-        let favitems:ItemFavourite[] = [];
+    return this.http.get<any>(environment.remoteServiceUrl).pipe(
+      map((res) => {
+        let items: Item[] = <Item[]>res.items;
+        let favitems: ItemFavourite[] = [];
         items.forEach(elem => {
           favitems.push(this.mapItemToFavouriteItem(elem));
         });
