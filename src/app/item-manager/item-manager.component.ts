@@ -3,6 +3,7 @@ import { ItemService } from './../shared/services/item.service';
 import { finalize } from 'rxjs/operators';
 import { ItemFavourite } from '../shared/models/item-favourite.model';
 import { AppConst } from '../shared/consts';
+import { ViewportScroller } from '@angular/common';
 
 @Component({
   selector: 'app-item-manager',
@@ -13,7 +14,9 @@ export class ItemManagerComponent implements OnInit {
   items: ItemFavourite[] = [];
   templateItems: ItemFavourite[] = [];
   counter: number= 0;
-  constructor(private itemService: ItemService) {}
+  availableItems: boolean = true;
+  pageYoffset: number;
+  constructor(private itemService: ItemService,private scroll: ViewportScroller) {}
   
   ngOnInit(): void {
     this.getItems();
@@ -34,6 +37,10 @@ export class ItemManagerComponent implements OnInit {
   // sending the items to the template by groups (of 5)
   // and asked for more from template
   getSomeItems() {
+    if (this.templateItems.length === this.items.length) {
+      this.availableItems = false;
+      return;
+    }
     let skip = this.counter * AppConst.elementsToTake;
     let take = AppConst.elementsToTake + skip;
     let itemsToShow = this.items.slice(skip, take)
@@ -41,12 +48,17 @@ export class ItemManagerComponent implements OnInit {
       this.templateItems.push(elem);
     });
     this.counter++;
+    console.log('rendered items : =', this.templateItems.length)
   }
+  
+  @HostListener('window:scroll', ['$event']) onScroll(event){
+    this.pageYoffset = window.pageYOffset;
+    console.log(this.pageYoffset)
+ }
 
-  // @HostListener('scroll', ['$event']) // for scroll events of the current element
-// @HostListener('window:scroll', ['$event']) // for window scroll events
-// onScroll(event) {
-//   this.getSomeItems()
-//   console.log("tachan", event)
-// }
+
+scrollToTop(){
+    this.scroll.scrollToPosition([0,0]);
+}
+  
 }
