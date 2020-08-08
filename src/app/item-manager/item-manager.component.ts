@@ -16,6 +16,9 @@ export class ItemManagerComponent implements OnInit {
   counter: number= 0;
   availableItems: boolean = true;
   pageYoffset: number;
+  filterValue:String;
+  fieldValue:String;
+
   constructor(private itemService: ItemService,private scroll: ViewportScroller) {}
   
   ngOnInit(): void {

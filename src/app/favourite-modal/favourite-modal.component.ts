@@ -10,6 +10,7 @@ import { ItemFavourite } from '../shared/models/item-favourite.model';
 export class FavouriteModalComponent implements OnInit {
   showModal: boolean = false;
   items: ItemFavourite[] = [];
+  filterValue:String;
 
   constructor(private favService: FavouritesService) {}
 
