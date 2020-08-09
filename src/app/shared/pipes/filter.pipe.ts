@@ -9,7 +9,7 @@ export class FilterPipe implements PipeTransform {
   // transform(itemsInput: unknown, ...args: unknown[]): unknown {
   transform(
     itemsInput: ItemFavourite[],
-    filterString: string ,
+    filterString: string,
     fieldName?: string
   ): ItemFavourite[] {
     //without filters : do nothing
@@ -17,33 +17,61 @@ export class FilterPipe implements PipeTransform {
       return itemsInput;
     }
     const resultArray: ItemFavourite[] = [];
+    let normalizedFilter = this.stringNormalization(filterString);
     if (fieldName) {
-      for (const item of itemsInput) { 
-          let lowerCase = item[fieldName].toString().toLowerCase();// in case it's a number (price) we cast toString
-          if (lowerCase.includes(filterString.toLowerCase())) {   // we chek if includes some part of the input itemsInput
-            resultArray.push(item);
+      for (const item of itemsInput) {
+        let normalized = this.stringNormalization(item[fieldName].toString()); // in case it's a number (price) we cast toString
+        if (normalized.includes(normalizedFilter)) {
+          // we chek if includes some part of the input itemsInput
+          resultArray.push(item);
         }
       }
       // filter by any field
     } else {
       for (const item of itemsInput) {
-        item.description.toLowerCase();
-        item.email.toLowerCase();
-        item.title.toLowerCase();
-        if(
-          item.description.includes(filterString.toLowerCase()) ||
-          item.email.includes(filterString.toLowerCase()) ||
-          item.title.includes(filterString.toLowerCase()) ||
+        let lowDesc = this.stringNormalization(item.description);
+        let lowEmail = this.stringNormalization(item.email);
+        let lowTitle = this.stringNormalization(item.title);
+        let priceString = item.price.toString();
+        if (
+          lowDesc.includes(normalizedFilter) ||
+          lowEmail.includes(normalizedFilter) ||
+          lowTitle.includes(normalizedFilter) ||
           //item.price == + filterString
           // price as string to serch for 00
-          item.price.toString().includes(filterString)
-        ){
+          priceString.includes(filterString)
+        ) {
           resultArray.push(item);
         }
       }
-
     }
     return resultArray;
+  }
+
+  stringNormalization(s: string): string {
+    let str = s.toLowerCase();
+    const ACCENTS = 'ÀÁÂÃÄÅàáâãäåÒÓÔÕÕÖØòóôõöøÈÉÊËèéêëðÇçÐÌÍÎÏìíîïÙÚÛÜùúûüÑñŠšŸÿýŽž';
+    const NON_ACCENTS = "AAAAAAaaaaaaOOOOOOOooooooEEEEeeeeeCcDIIIIiiiiUUUUuuuuNnSsYyyZz";
+
+    const strAccents: string[] = str.split('');
+    const strAccentsOut: string[] = new Array();
+
+    const strAccentsLen: number = strAccents.length;
+
+    for (let y = 0; y < strAccentsLen; y++) 
+    {
+        if (ACCENTS.indexOf(strAccents[y]) != -1)
+        {
+            strAccentsOut[y] = NON_ACCENTS.substr(ACCENTS.indexOf(strAccents[y]), 1);
+        } 
+        else
+        {
+                strAccentsOut[y] = strAccents[y];
+        }
+    }
+
+    const newString: string = strAccentsOut.join('');
+    return newString;
   }
 }
 
