@@ -24,7 +24,7 @@
           name="field"
           [(ngModel)]="fieldValue"
         >
-          <option value="" selected>Select your option</option>
+          <option value="" selected>all fields</option>
           <option *ngFor="let field of itemFields" value="{{ field }}">
             {{ field }}
           </option>
@@ -39,11 +39,11 @@
         <label for="orderby">Order by</label>
         <select
           class="form-control"
-          name="orderby"
+          name="field"
           id="orderby"
           [(ngModel)]="orderValue"
         >
-          <option value="" selected>Select your option</option>
+          <option value="" selected>all fields</option>
           <option *ngFor="let val of itemFields" value="{{ val }}">
             {{ val }}
           </option>
