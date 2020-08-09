@@ -14,7 +14,6 @@ import { FavouriteModalComponent } from './favourite-modal/favourite-modal.compo
 import { ItemSmallComponent } from './favourite-modal/item-small/item-small.component';
 import { FilterPipe } from './shared/pipes/filter.pipe';
 import { OrderModule } from 'ngx-order-pipe';
-import { SortPipe } from './shared/pipes/sort.pipe';
 
 @NgModule({
   declarations: [
@@ -25,7 +24,6 @@ import { SortPipe } from './shared/pipes/sort.pipe';
     FavouriteModalComponent,
     ItemSmallComponent,
     FilterPipe,
-    SortPipe
   ],
   imports: [
     BrowserModule,
