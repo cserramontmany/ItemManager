@@ -4,5 +4,4 @@ export class Item{
         price: string;
         email: string;
         image: string;
-        //favourite: boolean;
 }

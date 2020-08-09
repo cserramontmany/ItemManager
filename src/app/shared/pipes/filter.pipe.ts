@@ -6,26 +6,30 @@ import { ItemFavourite } from '../models/item-favourite.model';
   pure: false,
 })
 export class FilterPipe implements PipeTransform {
-  // transform(value: unknown, ...args: unknown[]): unknown {
+  // transform(itemsInput: unknown, ...args: unknown[]): unknown {
   transform(
-    value: ItemFavourite[],
-    filterString: { [key: string]: any },
+    itemsInput: ItemFavourite[],
+    filterString: string ,
     fieldName?: string
   ): ItemFavourite[] {
-    if (value.length === 0 || !filterString) {
-      return value;
+    //without filters : do nothing
+    if (itemsInput.length === 0 || !filterString) {
+      return itemsInput;
     }
     const resultArray: ItemFavourite[] = [];
     if (fieldName) {
-      for (const item of value) {
-        let lowerCase = item[fieldName].toLowerCase();
-        if (lowerCase.includes(filterString.toLowerCase())) {
-          resultArray.push(item);
+      for (const item of itemsInput) { 
+          let lowerCase = item[fieldName].toString().toLowerCase();// in case it's a number (price) we cast toString
+          if (lowerCase.includes(filterString.toLowerCase())) {   // we chek if includes some part of the input itemsInput
+            resultArray.push(item);
+          // }else{
+          //   let strNumber = item[fieldName].toString();
+          // }
         }
       }
-      // any field
+      // filter by any field
     } else {
-      for (const item of value) {
+      for (const item of itemsInput) {
         item.description.toLowerCase();
         item.email.toLowerCase();
         item.title.toLowerCase();
@@ -33,7 +37,7 @@ export class FilterPipe implements PipeTransform {
           item.description.includes(filterString.toLowerCase()) ||
           item.email.includes(filterString.toLowerCase()) ||
           item.title.includes(filterString.toLowerCase()) ||
-          item.price.includes(filterString.toLowerCase())
+          item.price == + filterString
         ){
           resultArray.push(item);
         }
@@ -43,3 +47,11 @@ export class FilterPipe implements PipeTransform {
     return resultArray;
   }
 }
+
+/* CARLES TODO NOTES: 
+I would like to : 
+filter price from a range,
+
+
+
+*/

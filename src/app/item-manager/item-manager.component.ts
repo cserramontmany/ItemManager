@@ -4,6 +4,7 @@ import { finalize } from 'rxjs/operators';
 import { ItemFavourite } from '../shared/models/item-favourite.model';
 import { AppConst } from '../shared/consts';
 import { ViewportScroller } from '@angular/common';
+import { OrderPipe } from 'ngx-order-pipe';
 
 @Component({
   selector: 'app-item-manager',
@@ -16,10 +17,19 @@ export class ItemManagerComponent implements OnInit {
   counter: number= 0;
   availableItems: boolean = true;
   pageYoffset: number;
-  filterValue:String;
-  fieldValue:String;
+  itemFields: string[] = ['title', 'description', 'email', 'price'];
+  filterValue:string;
+  fieldValue:string;
 
-  constructor(private itemService: ItemService,private scroll: ViewportScroller) {}
+  orderValue: string = 'title';
+  reverse: boolean = false;
+
+  constructor(
+    private itemService: ItemService,
+    private scroll: ViewportScroller,
+    private orderPipe: OrderPipe) {
+      this.templateItems = orderPipe.transform(this.items, this.orderValue);
+    }
   
   ngOnInit(): void {
     this.getItems();
@@ -56,12 +66,14 @@ export class ItemManagerComponent implements OnInit {
   
   @HostListener('window:scroll', ['$event']) onScroll(event){
     this.pageYoffset = window.pageYOffset;
-    console.log(this.pageYoffset)
+    //console.log(this.pageYoffset)
  }
-
 
 scrollToTop(){
     this.scroll.scrollToPosition([0,0]);
 }
   
+onChangeFieldValue(value: string) {
+  this.fieldValue = value;
+}
 }

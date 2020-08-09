@@ -13,6 +13,8 @@ import { HeaderComponent } from './header/header.component';
 import { FavouriteModalComponent } from './favourite-modal/favourite-modal.component';
 import { ItemSmallComponent } from './favourite-modal/item-small/item-small.component';
 import { FilterPipe } from './shared/pipes/filter.pipe';
+import { OrderModule } from 'ngx-order-pipe';
+import { SortPipe } from './shared/pipes/sort.pipe';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,8 @@ import { FilterPipe } from './shared/pipes/filter.pipe';
     HeaderComponent,
     FavouriteModalComponent,
     ItemSmallComponent,
-    FilterPipe
+    FilterPipe,
+    SortPipe
   ],
   imports: [
     BrowserModule,
@@ -30,7 +33,8 @@ import { FilterPipe } from './shared/pipes/filter.pipe';
     HttpClientModule,
     CommonModule,
     FormsModule,
-    InfiniteScrollModule
+    InfiniteScrollModule,
+    OrderModule
   ],
   providers: [],
   bootstrap: [AppComponent]
