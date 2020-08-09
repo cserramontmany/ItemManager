@@ -16,3 +16,10 @@
 .email {
   font-weight: 600;
 }
+
+
+@media (min-width: 992px) {//bootstrap: 576
+  .title {
+    font-size: 2em;
+  }
+}
