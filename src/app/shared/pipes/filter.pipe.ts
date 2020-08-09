@@ -34,7 +34,9 @@ export class FilterPipe implements PipeTransform {
           item.description.includes(filterString.toLowerCase()) ||
           item.email.includes(filterString.toLowerCase()) ||
           item.title.includes(filterString.toLowerCase()) ||
-          item.price == + filterString
+          //item.price == + filterString
+          // price as string to serch for 00
+          item.price.toString().includes(filterString)
         ){
           resultArray.push(item);
         }
