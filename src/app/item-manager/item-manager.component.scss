@@ -6,8 +6,15 @@
 .btn-container{
     display: flex;
     justify-content: flex-end;
-    width: 80%;
+    width: 100%;
 }
 .btn{
     margin-right: 20;
+}
+
+@media (max-width: 576px) {
+    .w-sm-100{
+        width: 100% !important;
+        // background-color: red;
+    }
 }

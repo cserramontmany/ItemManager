@@ -1,14 +1,22 @@
-<div class="flex-container-header">
-    <div (click)="showFavs()" class="favourites-container pointer" [ngClass]="items.length > 0 ?'pointer' :'not-allowed'">
-      <p class="fav-counter">{{ items.length }}</p>
-      <i class="material-icons favourite-pink" *ngIf="items.length > 0">favorite</i>
-      <i class="material-icons" *ngIf="items.length <= 0">favorite_border</i>
-    </div>
-  <div class="title-container">
-    <p class="title">Item App</p>
-    <p class="from">from</p>
-    <p class="email">carles.idea@gmail.com</p>
+<div class="container">
+<div class="row justify-content-between">
+  <div class="col">
+    <pre class="title"> () => &#123; Wallapop.push(carles.idea@gmail.com); &#125;;</pre>
   </div>
+  <div class="col">
+    <div
+    (click)="showFavs()"
+    class="d-flex justify-content-end pointer"
+    [ngClass]="items.length > 0 ? 'pointer' : 'not-allowed'"
+  >
+    <p class="fav-counter align-self-center">{{ items.length }}</p>
+    <i class="material-icons favourite-pink  align-self-center" *ngIf="items.length > 0"
+      >favorite
+      </i>
+    <i class="material-icons  align-self-center" *ngIf="items.length <= 0">favorite_border</i>
+  </div>
+  </div>
+
 </div>
 
 <app-favourite-modal #fav></app-favourite-modal>

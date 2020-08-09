@@ -2,10 +2,8 @@
   background: #fff;
   border-radius: 4px;
   position: relative;
-  margin-bottom: 20px;
-  margin-right: 20px;
-  width: 300px;
-  //height: 450px;
+margin: 10px;
+  width: auto;
   box-shadow: 1px 1px 5px #999999;
 }
 
@@ -38,7 +36,7 @@ div .price {
   overflow: hidden;
   text-overflow: ellipsis;
   margin-top: 0 ;
-  margin-bottom: 0;
+  margin-bottom: 5px;
 }
 
 .description {
@@ -55,14 +53,34 @@ div .price {
   right: 10px;
   font-size: small;
 }
-// @media (max-width: 655px) {//bootstrap: 576
-//     .item{
-//         width: 550px;
-//         // height: 300px;
-//     }
-//     .img{
-//         float: left;
-//     }
-//     .info{
-//     }
-//}
+@media (min-width: 576px) {
+    .item{
+        width: 240px;
+        // background-color: red;
+    }
+}
+
+// @media (max-width: 576px) {
+//   .item{
+//       width: 100% !important;
+//       // background-color: red;
+//   }
+// }
+@media (min-width: 768px) {
+  .item{
+      width: 324px;
+      // background-color: orange;
+  }
+}
+@media (min-width: 992px) {//bootstrap: 576
+  .item{
+      width: 293px;
+      // background-color: green;
+  }
+}
+@media (min-width: 1200px) {//bootstrap: 576
+  .item{
+      width: 330px;
+      // background-color: blue;
+  }
+}

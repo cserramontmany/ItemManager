@@ -1,45 +1,100 @@
-filter:
-<input type="text" [(ngModel)]="filterValue" name="filterValue" />
-<select name="field" id="field" [(ngModel)]="fieldValue">
-  <option value="" selected>Select your option</option>
-  <option *ngFor="let field of itemFields" value="{{ field }}">{{
-    field
-  }}</option>
-</select>
-<br />
-<br />
-<select name="orderValue" id="orderValue" [(ngModel)]="orderValue">
-  <option value="" selected>Select your option</option>
-  <option *ngFor="let val of itemFields" value="{{ val }}">{{ val }}</option>
-</select>
-<label for="reverse">reverse</label>
-<input type="checkbox" name="reverse" [(ngModel)]="reverse" />
+<div class="container">
+  <div class="row mb-4 mx-0">
+    <div class="col-sm-12 col-lg-3">
+      <!-- <input type="text" [(ngModel)]="filterValue" name="filterValue" /> -->
+      <div class="form-group">
+        <label for="filter">Filter</label>
+        <input
+          type="text"
+          [(ngModel)]="filterValue"
+          name="filterValue"
+          class="form-control"
+          id="filterValue"
+          aria-describedby="filterValue"
+        />
+      </div>
+    </div>
+    <!-- filter col-->
+    <div class="col-sm-12 col-lg-3">
+      <div class="form-group">
+        <label for="selectFilter">Select where to filter</label>
+        <select
+          class="form-control"
+          id="selectFilter"
+          name="field"
+          [(ngModel)]="fieldValue"
+        >
+          <option value="" selected>Select your option</option>
+          <option *ngFor="let field of itemFields" value="{{ field }}">
+            {{ field }}
+          </option>
+        </select>
+      </div>
+    </div>
 
-<div
-  *ngIf="items"
-  class="flex"
-  infiniteScroll
-  [infiniteScrollDistance]="20"
-  [infiniteScrollThrottle]="50"
-  (scrolled)="getSomeItems()"
->
-  <div
-    *ngFor="
-      let itm of templateItems
-        | filter: filterValue:fieldValue
-        | orderBy: orderValue:reverse:'case-insensitive'
-    "
-  >
-    <app-item [item]="itm"></app-item>
+    <!-- filter col-->
+
+    <div class="col-sm-12 col-lg-3">
+      <div class="form-group">
+        <label for="orderby">Order by</label>
+        <select
+          class="form-control"
+          name="orderby"
+          id="orderby"
+          [(ngModel)]="orderValue"
+        >
+          <option value="" selected>Select your option</option>
+          <option *ngFor="let val of itemFields" value="{{ val }}">
+            {{ val }}
+          </option>
+        </select>
+      </div>
+    </div>
+    <!-- filter col-->
+
+    <div class="col-sm-12 col-lg-3 align-self-center">
+      <div class="form-check">
+        <input
+          class="form-check-input"
+          type="checkbox"
+          value=""
+          id="reverse"
+          [(ngModel)]="reverse"
+        />
+        <label class="form-check-label" for="reverse">
+          Reverse order
+        </label>
+      </div>
+    </div>
   </div>
-  <div class="btn-container" *ngIf="availableItems">
-    <button class="btn" (click)="getSomeItems()">More items</button>
+    <div
+      class="row ml-1"
+      *ngIf="items"
+      infiniteScroll
+      [infiniteScrollDistance]="20"
+      [infiniteScrollThrottle]="50"
+      (scrolled)="getSomeItems()"
+    >
+      <!-- <ngx-masonry [options]="{ gutter: 20 }"> ngxMasonryItem -->
+      <div class="d-flex w-sm-100"
+        *ngFor="
+          let itm of templateItems
+            | filter: filterValue:fieldValue
+            | orderBy: orderValue:reverse:'case-insensitive'
+        "
+      >
+        <app-item [item]="itm"></app-item>
+      </div>
+      <!-- </ngx-masonry> -->
+      <div class="btn-container" *ngIf="availableItems">
+        <button class="btn" (click)="getSomeItems()">More items</button>
+      </div>
+    </div>
+    <div class="btn-container" *ngIf="!availableItems">
+      <button class="btn" (click)="scrollToTop()">
+        <span class="material-icons">
+          keyboard_arrow_up
+        </span>
+      </button>
+    </div>
   </div>
-</div>
-<div class="btn-container" *ngIf="!availableItems">
-  <button class="btn" (click)="scrollToTop()">
-    <span class="material-icons">
-      keyboard_arrow_up
-    </span>
-  </button>
-</div>

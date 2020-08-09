@@ -2,8 +2,16 @@
   
   <!-- Modal content -->
   <div class="modal-content">
-    <input type="text" [(ngModel)]="filterValue" name="filterValue">
-    <div class="close" (click)="close()">&times;</div>
+    <div class="row">
+      <div class="col">
+        <div class="form-group">
+          <input type="text" [(ngModel)]="filterValue" name="filterValue" class="form-control">
+        </div>
+      </div>
+      <div class="col">
+        <div class="close" (click)="close()">&times;</div>
+      </div>
+    </div>
     <div *ngIf="items" class="flex">
       <div *ngFor="let itm of items | filter : filterValue : 'title' ">
         <app-item-small [item]="itm"></app-item-small>

@@ -14,6 +14,8 @@ import { FavouriteModalComponent } from './favourite-modal/favourite-modal.compo
 import { ItemSmallComponent } from './favourite-modal/item-small/item-small.component';
 import { FilterPipe } from './shared/pipes/filter.pipe';
 import { OrderModule } from 'ngx-order-pipe';
+import { NgxMasonryModule } from 'ngx-masonry';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -27,12 +29,14 @@ import { OrderModule } from 'ngx-order-pipe';
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
     HttpClientModule,
     CommonModule,
     FormsModule,
     InfiniteScrollModule,
-    OrderModule
+    OrderModule,
+    NgxMasonryModule
   ],
   providers: [],
   bootstrap: [AppComponent]

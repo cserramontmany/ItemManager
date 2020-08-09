@@ -1,32 +1,12 @@
-.flex-container-header {
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: row;
-  padding: 0 25px 20px 0;
+
+
+.fav-counter {
+  font-size: 2.1em;
 }
 
-.favourites-container {
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: space-between;
-  align-items: flex-end;
-  margin-right: 50px;
-  padding-bottom: 5px;
-}
-.fav-counter {
-  font-size: 2em;
-  margin-bottom: -3px;
-  margin-right: 5px;
-}
-.title-container {
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: space-between;
-  align-items: baseline;
-}
 
 .title {
-  font-size: 3em;
+  font-size: 2vw;
   margin-right: 5px;
 }
 .from {
