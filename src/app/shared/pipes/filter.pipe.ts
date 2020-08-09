@@ -22,9 +22,6 @@ export class FilterPipe implements PipeTransform {
           let lowerCase = item[fieldName].toString().toLowerCase();// in case it's a number (price) we cast toString
           if (lowerCase.includes(filterString.toLowerCase())) {   // we chek if includes some part of the input itemsInput
             resultArray.push(item);
-          // }else{
-          //   let strNumber = item[fieldName].toString();
-          // }
         }
       }
       // filter by any field

@@ -17,11 +17,11 @@ export class ItemManagerComponent implements OnInit {
   counter: number= 0;
   availableItems: boolean = true;
   pageYoffset: number;
-  itemFields: string[] = ['title', 'description', 'email', 'price'];
+  itemFields: string[];
   filterValue:string;
   fieldValue:string;
 
-  orderValue: string = 'title';
+  orderValue: string;
   reverse: boolean = false;
 
   constructor(
@@ -32,6 +32,7 @@ export class ItemManagerComponent implements OnInit {
     }
   
   ngOnInit(): void {
+    this.itemFields = AppConst.orderFields;
     this.getItems();
   }
 

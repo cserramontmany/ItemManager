@@ -1,27 +1,35 @@
-filter: 
-<input type="text" [(ngModel)]="filterValue" name="filterValue">
-  <select name="field" id="field" [(ngModel)]="fieldValue">
-    <option value="" selected>Select your option</option>
-    <option *ngFor="let field of itemFields" value="{{field}}">{{field}}</option>
-  </select>
-<br>
-<br>
+filter:
+<input type="text" [(ngModel)]="filterValue" name="filterValue" />
+<select name="field" id="field" [(ngModel)]="fieldValue">
+  <option value="" selected>Select your option</option>
+  <option *ngFor="let field of itemFields" value="{{ field }}">{{
+    field
+  }}</option>
+</select>
+<br />
+<br />
 <select name="orderValue" id="orderValue" [(ngModel)]="orderValue">
   <option value="" selected>Select your option</option>
-  <option *ngFor="let val of itemFields" value="{{val}}">{{val}}</option>
-</select> 
+  <option *ngFor="let val of itemFields" value="{{ val }}">{{ val }}</option>
+</select>
 <label for="reverse">reverse</label>
-<input type="checkbox" name="reverse" [(ngModel)]="reverse">
+<input type="checkbox" name="reverse" [(ngModel)]="reverse" />
 
-
-
-<div *ngIf="items" class="flex"
-infiniteScroll
-      [infiniteScrollDistance]="20"
-      [infiniteScrollThrottle]="50"
-      (scrolled)="getSomeItems()"
+<div
+  *ngIf="items"
+  class="flex"
+  infiniteScroll
+  [infiniteScrollDistance]="20"
+  [infiniteScrollThrottle]="50"
+  (scrolled)="getSomeItems()"
 >
-  <div *ngFor="let itm of templateItems | filter : filterValue : fieldValue | orderBy: orderValue:reverse:'case-insensitive'">
+  <div
+    *ngFor="
+      let itm of templateItems
+        | filter: filterValue:fieldValue
+        | orderBy: orderValue:reverse:'case-insensitive'
+    "
+  >
     <app-item [item]="itm"></app-item>
   </div>
   <div class="btn-container" *ngIf="availableItems">
@@ -32,6 +40,6 @@ infiniteScroll
   <button class="btn" (click)="scrollToTop()">
     <span class="material-icons">
       keyboard_arrow_up
-      </span>
+    </span>
   </button>
 </div>
