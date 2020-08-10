@@ -14,7 +14,7 @@ import { FavouriteModalComponent } from './favourite-modal/favourite-modal.compo
 import { ItemSmallComponent } from './favourite-modal/item-small/item-small.component';
 import { FilterPipe } from './shared/pipes/filter.pipe';
 
-import { OrderModule } from 'ngx-order-pipe';
+import { OrderPipe } from 'ngx-order-pipe';
 
 @NgModule({
   declarations: [
@@ -25,6 +25,7 @@ import { OrderModule } from 'ngx-order-pipe';
     FavouriteModalComponent,
     ItemSmallComponent,
     FilterPipe,
+    OrderPipe,
   ],
   imports: [
     BrowserModule,
@@ -33,10 +34,9 @@ import { OrderModule } from 'ngx-order-pipe';
     CommonModule,
     FormsModule,
     InfiniteScrollModule,
-    OrderModule,
   ],
-  providers: [HttpClientModule],
+  providers: [HttpClientModule ],
   bootstrap: [AppComponent],
-  schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
+  schemas:[CUSTOM_ELEMENTS_SCHEMA]
 })
 export class AppModule { }

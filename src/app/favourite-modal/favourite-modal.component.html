@@ -1,4 +1,4 @@
-<div class="modal" [ngClass]="{ show: showModal }">
+<div class="modal" [ngClass]="{ show: showModal }" *ngIf="items">
   
   <!-- Modal content -->
   <div class="modal-content">
@@ -12,7 +12,7 @@
         <div class="close" (click)="close()">&times;</div>
       </div>
     </div>
-    <div *ngIf="items" class="flex">
+    <div class="flex">
       <div *ngFor="let itm of items | filter : filterValue : 'title' ">
         <app-item-small [item]="itm"></app-item-small>
       </div>

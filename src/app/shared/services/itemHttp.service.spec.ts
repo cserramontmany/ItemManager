@@ -1,16 +1,16 @@
 import { TestBed } from '@angular/core/testing';
 
-import { ItemService } from './item.service';
+import { ItemHttpService } from './itemHttp.service';
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 
-describe('ItemService', () => {
-  let service: ItemService;
+describe('ItemHttpService', () => {
+  let service: ItemHttpService;
 let httpMock: HttpTestingController;
   beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [ HttpClientTestingModule ]
     });
-    service = TestBed.inject(ItemService);
+    service = TestBed.inject(ItemHttpService);
   });
 
   it('should be created', () => {

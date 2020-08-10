@@ -9,7 +9,7 @@ import { ItemFavourite } from '../models/item-favourite.model';
 @Injectable({
   providedIn: 'root',
 })
-export class ItemService {
+export class ItemHttpService {
   constructor(private http: HttpClient) {}
 
   private handleError(error: HttpErrorResponse) {

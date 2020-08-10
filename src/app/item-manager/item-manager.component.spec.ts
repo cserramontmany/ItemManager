@@ -6,27 +6,36 @@ import {
 import { HttpClientModule } from '@angular/common/http';
 import { ItemManagerComponent } from './item-manager.component';
 import { FilterPipe } from '../shared/pipes/filter.pipe';
+import { OrderPipe } from 'ngx-order-pipe';
 
 describe('ItemManagerComponent', () => {
   let component: ItemManagerComponent;
   let fixture: ComponentFixture<ItemManagerComponent>;
-  let pipe: FilterPipe;
+  let filterPipe: FilterPipe;
+  let orderPipe: OrderPipe;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [HttpClientTestingModule],
-      declarations: [ItemManagerComponent, , FilterPipe ],
+      declarations: [ItemManagerComponent, FilterPipe, OrderPipe ],
+      providers:[OrderPipe]
     }).compileComponents();
+    
     fixture = TestBed.createComponent(ItemManagerComponent);
     component = fixture.componentInstance;
-    pipe = new FilterPipe();
+    filterPipe = new FilterPipe();
+    orderPipe = new OrderPipe();
     fixture.detectChanges();
   }));
-
-  beforeEach(() => {
-  });
 
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should get Items',() => {
+    component.getSomeItems()
+    expect(component.items).toBeDefined();
+  });
+
+  
 });

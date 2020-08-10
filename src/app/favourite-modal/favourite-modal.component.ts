@@ -11,8 +11,8 @@ import { AppConst } from '../shared/consts';
 export class FavouriteModalComponent implements OnInit {
   showModal: boolean = false;
   items: ItemFavourite[] = [];
-  filterValue:string;
-  filterField:string;
+  filterValue:string ='';
+  filterField:string ='';
 
   constructor(private favService: FavouritesService) {}
 

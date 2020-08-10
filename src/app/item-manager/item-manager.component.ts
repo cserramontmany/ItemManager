@@ -1,5 +1,5 @@
 import { Component, OnInit, HostListener, ViewChild } from '@angular/core';
-import { ItemService } from './../shared/services/item.service';
+import { ItemHttpService } from '../shared/services/itemHttp.service';
 import { finalize } from 'rxjs/operators';
 import { ItemFavourite } from '../shared/models/item-favourite.model';
 import { AppConst } from '../shared/consts';
@@ -18,14 +18,14 @@ export class ItemManagerComponent implements OnInit {
   availableItems: boolean = true;
   pageYoffset: number;
   itemFields: string[];
-  filterValue: string;
-  fieldValue: string;
+  filterValue: string ='';
+  fieldValue: string ='';
 
   orderValue: string;
   reverse: boolean = false;
 
   constructor(
-    private itemService: ItemService,
+    private itemHttpService: ItemHttpService,
     private scroll: ViewportScroller,
     private orderPipe: OrderPipe
   ) {
@@ -39,7 +39,7 @@ export class ItemManagerComponent implements OnInit {
 
   // asking for the items to the service:
   public getItems(): void {
-    this.itemService
+    this.itemHttpService
       .getFavItems()
       .pipe(
         finalize(() => {
