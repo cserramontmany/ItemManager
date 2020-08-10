@@ -10,8 +10,6 @@ import { OrderPipe } from 'ngx-order-pipe';
 import { InfiniteScrollDirective } from 'ngx-infinite-scroll';
 import { FavouriteModalComponent } from '../favourite-modal/favourite-modal.component';
 import { FormsModule } from '@angular/forms';
-import { InfiniteScrollModule } from 'ngx-infinite-scroll';
-import { FavouritesService } from '../shared/services/favourites.service';
 import { ItemHttpService } from '../shared/services/itemHttp.service';
 import { Observable, Observer } from 'rxjs';
 import { ItemFavourite } from '../shared/models/item-favourite.model';
@@ -20,10 +18,6 @@ import { Item } from '../shared/models/item.model';
 describe('ItemManagerComponent', () => {
   let component: ItemManagerComponent;
   let fixture: ComponentFixture<ItemManagerComponent>;
-  let filterPipe: FilterPipe;
-  let orderPipe: OrderPipe;
-  let favModal: FavouriteModalComponent;
-  let favService: FavouritesService;
 
   beforeEach(async () => {
     TestBed.configureTestingModule({

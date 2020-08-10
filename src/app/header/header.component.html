@@ -6,12 +6,12 @@
   <div class="col-2">
     <div
     (click)="showFavs()"
-    class="d-flex justify-content-end pointer"
-    [ngClass]="items.length > 0 ? 'pointer' : 'not-allowed'"
+    class="d-flex justify-content-end "
+    [ngClass]="(items.length > 0) ? 'pointer' : 'not-allowed'"
   >
     <p class="fav-counter align-self-center">{{ items.length }}</p>
-    <i class="material-icons favourite-pink  align-self-center" *ngIf="items.length > 0"
-      >favorite
+    <i class="material-icons favourite-pink  align-self-center" *ngIf="items.length > 0">
+      favorite
       </i>
     <i class="material-icons  align-self-center" *ngIf="items.length <= 0">favorite_border</i>
   </div>

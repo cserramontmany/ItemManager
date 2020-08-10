@@ -10,6 +10,7 @@ import { OrderPipe } from 'ngx-order-pipe';
   selector: 'app-item-manager',
   templateUrl: './item-manager.component.html',
   styleUrls: ['./item-manager.component.scss'],
+  providers:[OrderPipe]
 })
 export class ItemManagerComponent implements OnInit {
   items: ItemFavourite[] = [];
