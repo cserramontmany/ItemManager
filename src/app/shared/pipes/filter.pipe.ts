@@ -65,7 +65,6 @@ export class FilterPipe implements PipeTransform {
         strAccentsOut[y] = strAccents[y];
       }
     }
-
     const newString: string = strAccentsOut.join('');
     return newString;
   }
