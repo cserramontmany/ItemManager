@@ -12,6 +12,8 @@ I've had a look on wallapop website ( desktop and smartphone) and my choice for 
 getting elements by groups of 5: 
     - I've achived that to get all of them stored in an array, then move them to the render array when asked. It was a problem because the link endpoint always send 20 elements. and when I wanted to get by groups of 5, I already had all of them when i subscribe. then I decided to use them "as it is". And also filtering and sorting could be difficult.  
 
+In the service I  call to change the type of Items to ItemsFavorite: this is the same type but it has the favoureite boolean; 
+
 I also forced the cards to certain width, this way I have the control of how will be distributed in each row and how many of them will be in each breakpoint. 
 
 FilterPipe : on the top part of the ItemManagerComponent, there's a filter input, it filter on every field of the component and if user wants to only filter on one filed it can be choosen on the next dropdown field. I decided to build this pipe to have the control fields to filter. 

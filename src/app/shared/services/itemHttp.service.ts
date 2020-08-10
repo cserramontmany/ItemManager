@@ -33,7 +33,7 @@ export class ItemHttpService {
   //  return this.getFavItems().pipe( skip(0), take(5))
   // }
 
-  public getFavItems(): Observable<ItemFavourite[]> {
+  public getItemsFromEndPoint(): Observable<ItemFavourite[]> {
     // Call the http GET
     return this.http.get<any>(environment.remoteServiceUrl).pipe(
       map((res) => {

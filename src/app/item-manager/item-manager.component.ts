@@ -18,8 +18,8 @@ export class ItemManagerComponent implements OnInit {
   availableItems: boolean = true;
   pageYoffset: number;
   itemFields: string[];
-  filterValue: string ='';
-  fieldValue: string ='';
+  filterValue: string = '';
+  fieldValue: string = '';
 
   orderValue: string;
   reverse: boolean = false;
@@ -40,7 +40,7 @@ export class ItemManagerComponent implements OnInit {
   // asking for the items to the service:
   public getItems(): void {
     this.itemHttpService
-      .getFavItems()
+      .getItemsFromEndPoint()
       .pipe(
         finalize(() => {
           this.getSomeItems();
@@ -73,7 +73,4 @@ export class ItemManagerComponent implements OnInit {
     this.scroll.scrollToPosition([0, 0]);
   }
 
-  onChangeFieldValue(value: string) {
-    this.fieldValue = value;
-  }
 }
