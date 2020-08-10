@@ -5,7 +5,6 @@ import { ItemFavourite } from '../shared/models/item-favourite.model';
 import { AppConst } from '../shared/consts';
 import { ViewportScroller } from '@angular/common';
 import { OrderPipe } from 'ngx-order-pipe';
-import { NgxMasonryComponent } from 'ngx-masonry';
 
 @Component({
   selector: 'app-item-manager',
@@ -24,7 +23,6 @@ export class ItemManagerComponent implements OnInit {
 
   orderValue: string;
   reverse: boolean = false;
-  @ViewChild(NgxMasonryComponent) masonry: NgxMasonryComponent;
 
   constructor(
     private itemService: ItemService,
@@ -66,11 +64,6 @@ export class ItemManagerComponent implements OnInit {
     });
     this.counter++;
     console.log('rendered items : =', this.templateItems.length);
-  }
-  applyFilters(){
-    this.templateItems = this.orderPipe.transform(this.templateItems, this.filterValue, this.reverse)
-    this.masonry.reloadItems();
-    this.masonry.layout();
   }
 
   @HostListener('window:scroll', ['$event']) onScroll(event) {

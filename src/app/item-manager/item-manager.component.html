@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container" *ngIf="items">
   <div class="row mb-4 mx-0">
     <div class="col-sm-12 col-lg-3">
       <!-- <input type="text" [(ngModel)]="filterValue" name="filterValue" /> -->
@@ -69,13 +69,12 @@
   </div>
     <div
       class="row ml-1"
-      *ngIf="items"
+      
       infiniteScroll
       [infiniteScrollDistance]="20"
       [infiniteScrollThrottle]="50"
       (scrolled)="getSomeItems()"
     >
-      <!-- <ngx-masonry [options]="{ gutter: 20 }"> ngxMasonryItem -->
       <div class="d-flex w-sm-100"
         *ngFor="
           let itm of templateItems
@@ -85,7 +84,6 @@
       >
         <app-item [item]="itm"></app-item>
       </div>
-      <!-- </ngx-masonry> -->
       <div class="btn-container" *ngIf="availableItems">
         <button class="btn" (click)="getSomeItems()">More items</button>
       </div>

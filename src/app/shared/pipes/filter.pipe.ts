@@ -6,7 +6,6 @@ import { ItemFavourite } from '../models/item-favourite.model';
   pure: false,
 })
 export class FilterPipe implements PipeTransform {
-  // transform(itemsInput: unknown, ...args: unknown[]): unknown {
   transform(
     itemsInput: ItemFavourite[],
     filterString: string,
@@ -37,8 +36,6 @@ export class FilterPipe implements PipeTransform {
           lowDesc.includes(normalizedFilter) ||
           lowEmail.includes(normalizedFilter) ||
           lowTitle.includes(normalizedFilter) ||
-          //item.price == + filterString
-          // price as string to serch for 00
           priceString.includes(filterString)
         ) {
           resultArray.push(item);
@@ -50,35 +47,26 @@ export class FilterPipe implements PipeTransform {
 
   stringNormalization(s: string): string {
     let str = s.toLowerCase();
-    const ACCENTS = 'ÀÁÂÃÄÅàáâãäåÒÓÔÕÕÖØòóôõöøÈÉÊËèéêëðÇçÐÌÍÎÏìíîïÙÚÛÜùúûüÑñŠšŸÿýŽž';
-    const NON_ACCENTS = "AAAAAAaaaaaaOOOOOOOooooooEEEEeeeeeCcDIIIIiiiiUUUUuuuuNnSsYyyZz";
-
+    const ACCENTS =
+      'ÀÁÂÃÄÅàáâãäåÒÓÔÕÕÖØòóôõöøÈÉÊËèéêëðÇçÐÌÍÎÏìíîïÙÚÛÜùúûüÑñŠšŸÿýŽž';
+    const NON_ACCENTS =
+      'AAAAAAaaaaaaOOOOOOOooooooEEEEeeeeeCcDIIIIiiiiUUUUuuuuNnSsYyyZz';
     const strAccents: string[] = str.split('');
     const strAccentsOut: string[] = new Array();
-
     const strAccentsLen: number = strAccents.length;
 
-    for (let y = 0; y < strAccentsLen; y++) 
-    {
-        if (ACCENTS.indexOf(strAccents[y]) != -1)
-        {
-            strAccentsOut[y] = NON_ACCENTS.substr(ACCENTS.indexOf(strAccents[y]), 1);
-        } 
-        else
-        {
-                strAccentsOut[y] = strAccents[y];
-        }
+    for (let y = 0; y < strAccentsLen; y++) {
+      if (ACCENTS.indexOf(strAccents[y]) != -1) {
+        strAccentsOut[y] = NON_ACCENTS.substr(
+          ACCENTS.indexOf(strAccents[y]),
+          1
+        );
+      } else {
+        strAccentsOut[y] = strAccents[y];
+      }
     }
 
     const newString: string = strAccentsOut.join('');
     return newString;
   }
 }
-
-/* CARLES TODO NOTES: 
-I would like to : 
-filter price from a range,
-
-
-
-*/
