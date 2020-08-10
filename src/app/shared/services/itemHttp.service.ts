@@ -26,6 +26,7 @@ export class ItemHttpService {
     return throwError(error);
   }
 
+  //CARLES TODO's
   // if i had the control of the api, i would ask for the elements that i want to charge.
   // like using skip and take
   // same with the filter.

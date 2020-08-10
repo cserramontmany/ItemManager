@@ -24,7 +24,6 @@ describe('ItemManagerComponent', () => {
   let orderPipe: OrderPipe;
   let favModal: FavouriteModalComponent;
   let favService: FavouritesService;
-  //let httpService: ItemHttpService;
 
   beforeEach(async () => {
     TestBed.configureTestingModule({
@@ -39,12 +38,9 @@ describe('ItemManagerComponent', () => {
     });
     await TestBed.compileComponents();
 
-    //let comp = fixture.debugElement.componentInstance as ItemManagerComponent;
     fixture = TestBed.createComponent(ItemManagerComponent);
     component = fixture.componentInstance;
-    filterPipe = new FilterPipe();
-    orderPipe = new OrderPipe();
-    favModal = new FavouriteModalComponent(favService);
+
     fixture.detectChanges();
     let httpService = fixture.debugElement.injector.get(ItemHttpService);
     spyOn(httpService, 'getItemsFromEndPoint').and.returnValue(
