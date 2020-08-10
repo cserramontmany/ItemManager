@@ -2,7 +2,7 @@
   <div class="row mb-4 mx-0">
     <div class="col-sm-12 col-lg-3">
       <div class="form-group">
-        <label for="filter">Filter</label>
+        <label for="filterValue">Filter</label>
         <input
           type="text"
           [(ngModel)]="filterValue"
@@ -16,11 +16,11 @@
     <!-- filter col-->
     <div class="col-sm-12 col-lg-3">
       <div class="form-group">
-        <label for="selectFilter">Select where to filter</label>
+        <label for="fieldValue">Select where to filter</label>
         <select
           class="form-control"
-          id="selectFilter"
-          name="field"
+          name="fieldValue"
+          id="fieldValue"
           [(ngModel)]="fieldValue"
         >
           <option value="" selected>all fields</option>
@@ -35,11 +35,11 @@
 
     <div class="col-sm-12 col-lg-3">
       <div class="form-group">
-        <label for="orderby">Order by</label>
+        <label for="orderValue">Order by</label>
         <select
           class="form-control"
-          name="field"
-          id="orderby"
+          name="orderValue"
+          id="orderValue"
           [(ngModel)]="orderValue"
         >
           <option value="" selected>all fields</option>
@@ -56,7 +56,7 @@
         <input
           class="form-check-input"
           type="checkbox"
-          value=""
+          name="reverse"
           id="reverse"
           [(ngModel)]="reverse"
         />

@@ -7,6 +7,10 @@ import { HttpClientModule } from '@angular/common/http';
 import { ItemManagerComponent } from './item-manager.component';
 import { FilterPipe } from '../shared/pipes/filter.pipe';
 import { OrderPipe } from 'ngx-order-pipe';
+import { InfiniteScrollDirective } from 'ngx-infinite-scroll';
+import { FavouriteModalComponent } from '../favourite-modal/favourite-modal.component';
+import { FormsModule } from '@angular/forms';
+import { InfiniteScrollModule, } from 'ngx-infinite-scroll';
 
 describe('ItemManagerComponent', () => {
   let component: ItemManagerComponent;
@@ -16,9 +20,9 @@ describe('ItemManagerComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [HttpClientTestingModule],
-      declarations: [ItemManagerComponent, FilterPipe, OrderPipe ],
-      providers:[OrderPipe]
+      imports: [HttpClientTestingModule,FormsModule ],
+      declarations: [ItemManagerComponent, FilterPipe, OrderPipe, FavouriteModalComponent ],
+      providers:[OrderPipe, InfiniteScrollDirective, FavouriteModalComponent ]
     }).compileComponents();
     
     fixture = TestBed.createComponent(ItemManagerComponent);
