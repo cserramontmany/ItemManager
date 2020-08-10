@@ -1,3 +1,4 @@
+// if more string fields are added add them on AppConst.orderFields
 import { Item } from './item.model';
 
 export class ItemFavourite {

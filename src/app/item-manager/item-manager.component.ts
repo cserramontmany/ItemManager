@@ -63,12 +63,10 @@ export class ItemManagerComponent implements OnInit {
       this.templateItems.push(elem);
     });
     this.counter++;
-    console.log('rendered items : =', this.templateItems.length);
   }
 
   @HostListener('window:scroll', ['$event']) onScroll(event) {
     this.pageYoffset = window.pageYOffset;
-    //console.log(this.pageYoffset)
   }
 
   scrollToTop() {
