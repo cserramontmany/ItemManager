@@ -12,7 +12,7 @@ import { FavouritesService } from '../shared/services/favourites.service';
 describe('FavouriteModalComponent', () => {
   let component: FavouriteModalComponent;
   let fixture: ComponentFixture<FavouriteModalComponent>;
-  let pipe: FilterPipe;
+
 
   beforeEach(async() => {
     TestBed.configureTestingModule({

@@ -46,11 +46,11 @@ export class FilterPipe implements PipeTransform {
   }
 
   stringNormalization(s: string): string {
-    let str = s.toLowerCase();
+    let str = s.toLocaleLowerCase();
     const ACCENTS =
-      'ÀÁÂÃÄÅàáâãäåÒÓÔÕÕÖØòóôõöøÈÉÊËèéêëðÇçÐÌÍÎÏìíîïÙÚÛÜùúûüÑñŠšŸÿýŽž';
+      'ÀÁÂÃÄÅàáâãäåÒÓÔÕÕÖØòóôõöøÈÉÊËèéêëðÇçÌÍÎÏìíîïÙÚÛÜùúûüÑñŠšŸÿýŽž';
     const NON_ACCENTS =
-      'AAAAAAaaaaaaOOOOOOOooooooEEEEeeeeeCcDIIIIiiiiUUUUuuuuNnSsYyyZz';
+      'AAAAAAaaaaaaOOOOOOOooooooEEEEeeeeeCcIIIIiiiiUUUUuuuuNnSsYyyZz';
     const strAccents: string[] = str.split('');
     const strAccentsOut: string[] = new Array();
     const strAccentsLen: number = strAccents.length;
