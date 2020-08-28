@@ -1,10 +1,8 @@
-# ItemManagerApp Carles Serramontmany test-app for Wallapop frontend job opportunity.
-
-first of all => thanks for the opportunity. 
+# ItemManagerApp Carles Serramontmany test-app
 
 I use bootrsrap to get an advantage on the styling, my plan was keeping it simple and clear. 
 
-I've had a look on wallapop website ( desktop and smartphone) and my choice for the items was to render them like cards, following the general rules of wallapop design. 
+I've had a look on wallapop website ( desktop and smartphone) and my choice for the items was to render them like cards design. 
 - Cards aren't with a fixed height: 
     - I was asked to show all the information, my first choice was to use ngx-masonry i was looking nice but filters weren't applied as I was expecting. Same for the images. 
     - My resolution was to render with cards with auto height. and use css flex. 
